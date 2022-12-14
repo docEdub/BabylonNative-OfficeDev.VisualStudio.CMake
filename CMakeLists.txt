@@ -14,14 +14,14 @@ set(SOURCE_GLOBS
     C:/office/src/gfx/*
     C:/office/src/graphics/*
 )
-set(NUGET_INCLUDE_DIR_GLOBS
+set(INCLUDE_DIR_GLOBS
     C:/NugetCache/babylon.native.*/build/native/include
     C:/NugetCache/microsoft.gltf.cpp.*/build/native/include
     C:/NugetCache/microsoft.lift.core.cx.*/build/native/include  
     C:/NugetCache/microsoft.lift.engine.cpp.*/build/native/include  
     C:/NugetCache/office.nodejs.*/include/node
     C:/office/ICache/current/graphics_spectre/x64/debug/x-none/publicinc
-    C:/office/Import/x64/debug/gfx/x-none/x64/inc # This has a lot of the same headers as in graphics_spectre. Break gfx and graphics into separate projects with separate include paths if it becomes a problem.
+    C:/office/Import/x64/debug/gfx/x-none/x64/inc # TODO: This has a lot of the same headers as in graphics_spectre. Break gfx and graphics into separate projects with separate include paths if it becomes a problem.
     C:/office/Import/x64/debug/graphics_spectre/x-none/x64/inc
     C:/office/src/otools/inc
     C:/office/src/otools/inc/arc
@@ -37,16 +37,16 @@ set(DEFINES
 
 # Run the source globs twice, once with directories and once without, then remove the files from the one with directories to get just the directories.
 file(GLOB_RECURSE SOURCES LIST_DIRECTORIES false ${SOURCE_GLOBS})
-file(GLOB_RECURSE INCLUDE_DIRS LIST_DIRECTORIES true ${SOURCE_GLOBS})
-list(REMOVE_ITEM INCLUDE_DIRS ${SOURCES})
+file(GLOB_RECURSE SOURCE_DIRS LIST_DIRECTORIES true ${SOURCE_GLOBS})
+list(REMOVE_ITEM SOURCE_DIRS ${SOURCES})
 
-file(GLOB NUGET_INCLUDE_DIRS ${NUGET_INCLUDE_DIR_GLOBS})
+file(GLOB INCLUDE_DIRS ${INCLUDE_DIR_GLOBS})
 
 set(CMAKE_CXX_STANDARD 23)
 
 add_library(office ${SOURCES})
 target_compile_definitions(office PUBLIC ${DEFINES})
-target_include_directories(office PUBLIC ${INCLUDE_DIRS} ${NUGET_INCLUDE_DIRS})
+target_include_directories(office PUBLIC ${SOURCE_DIRS} ${INCLUDE_DIRS})
 
 source_group(TREE C:/office FILES ${SOURCES})
 
