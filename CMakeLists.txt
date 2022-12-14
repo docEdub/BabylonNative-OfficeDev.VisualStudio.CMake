@@ -21,7 +21,11 @@ set(NUGET_INCLUDE_DIR_GLOBS
     C:/NugetCache/microsoft.lift.engine.cpp.*/build/native/include  
     C:/NugetCache/office.nodejs.*/include/node
     C:/office/ICache/current/graphics_spectre/x64/debug/x-none/publicinc
-    C:/office/Import/x64/debug/graphics_spectre/x-none/x64/inc # for <experimental/ChangeGate.h> TODO: There is another ChangeGate.h for gfx. Break them up into separate projects.
+    C:/office/Import/x64/debug/gfx/x-none/x64/inc # This has a lot of the same headers as in graphics_spectre. Break gfx and graphics into separate projects with separate include paths if it becomes a problem.
+    C:/office/Import/x64/debug/graphics_spectre/x-none/x64/inc
+    C:/office/src/otools/inc
+    C:/office/src/otools/inc/arc
+    C:/office/src/otools/inc/gfx
 )
 set(DEFINES
     NODE_ADDON_API_DISABLE_DEPRECATED
