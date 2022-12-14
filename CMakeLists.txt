@@ -1,4 +1,11 @@
 cmake_minimum_required(VERSION 3.25)
+
+# Note that you'll want to change the Visual Studio "Build and Run" options so only the startup project gets built,
+# otherwise the office project will try to build and fail horribly. It's setup for intellisense, not building.
+#
+# The startup project is a CMake custom target named "powerpoint" that copies the Babylon.js JavaScript files to the
+# appropriate Office folders when built, and launches PowerPoint when run.
+
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 project(office-dev)
