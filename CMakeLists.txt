@@ -15,13 +15,13 @@ set(SOURCE_GLOBS
     C:/office/src/graphics/*
 )
 set(NUGET_INCLUDE_DIR_GLOBS
+    C:/NugetCache/babylon.native.*/build/native/include
+    C:/NugetCache/microsoft.gltf.cpp.*/build/native/include
     C:/NugetCache/microsoft.lift.core.cx.*/build/native/include  
     C:/NugetCache/microsoft.lift.engine.cpp.*/build/native/include  
-    C:/NugetCache/babylon.native.*/build/native/include
     C:/NugetCache/office.nodejs.*/include/node
-    C:/NugetCache/microsoft.gltf.cpp.*/build/native/include
-    C:/office/Import/x64/debug/graphics_spectre/x-none/x64/inc # for <experimental/ChangeGate.h> TODO: There is another ChangeGate.h for gfx. Break them up into separate projects.
     C:/office/ICache/current/graphics_spectre/x64/debug/x-none/publicinc
+    C:/office/Import/x64/debug/graphics_spectre/x-none/x64/inc # for <experimental/ChangeGate.h> TODO: There is another ChangeGate.h for gfx. Break them up into separate projects.
 )
 set(DEFINES
     NODE_ADDON_API_DISABLE_DEPRECATED
